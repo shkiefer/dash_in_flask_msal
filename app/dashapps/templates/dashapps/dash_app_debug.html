@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% block styles %}
+          <!-- Bootstrap CSS -->
+          {{ bootstrap.load_css() }}
+      {% endblock %}
+    <title>
+        debug
+    </title>
+  {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <p>DEBUG!</p>
+         <div class="embed-responsive" style="min-height: {% if min_height is defined %}{{ min_height }}{% else %}200{% endif %}px">
+             <iframe
+                     src={{ dash_url }}
+                     style="overflow-x: hidden; overflow-y: visible; overflow-x: hidden; position: absolute; width: 95%; height: 100%; background: transparent"
+            ></iframe>
+        </div>
+    </div>
+</body>
+{{ bootstrap.load_js() }}
+</html>

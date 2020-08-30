@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ super() }}
+    {% block app_content %}
+        <p>this is in app_content</p>
+        <div style="position: relative">
+            <iframe
+                    style="position: relative; width: 100%"
+                    src={{ dash_url }}
+                    frameborder="0"
+                    scrolling="no"
+                    onload="resizeIframe(this)"
+            >
+            </iframe>
+        </div>
+        <p>this is below iframe div</p>
+    {% endblock %}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type="application/javascript">
+        function resizeIFrameToFitContent( iFrame ) {
+            iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+            iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+        }
+        window.addEventListener('DOMContentLoaded', function(e) {
+            var iFrame = document.getElementById( 'iFrame1' );
+            resizeIFrameToFitContent( iFrame );
+        });
+    </script>
+    <script>
+        function resizeIframe(obj) {
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+        }
+    </script>
+{% endblock %}

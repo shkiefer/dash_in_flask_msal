@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <img class="mb-4 mt-4 mx-auto d-block" src="/auth/static/img/logo_mpl.png" width=200 alt="">
+    <a class="btn btn-primary btn-lg btn-block" role="button" href='{{ auth_url }}'>
+        <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+    </a>
+    {% if current_user.is_authenticated %}
+        <H3>Logged in as {{ current_user.name }}</H3>
+    {% endif %}
+</div>
+{% endblock %}

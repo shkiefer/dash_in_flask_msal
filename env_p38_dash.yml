@@ -25,12 +25,13 @@ dependencies:
 # dash and flask
 - flask
 - dash
-- gunicorn
+#- gunicorn
 - flask-sqlalchemy
 - flask-login
 - flask-migrate
 - flask-wtf
 - werkzeug
+- python-dotenv
 # 0365 integration
 - msal
 - pip:

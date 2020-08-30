@@ -7,14 +7,13 @@ import dash_bootstrap_components as dbc
 
 import numpy as np
 import pandas as pd
-
 import plotly.express as px
-from app.dashapps import _protect_dashviews
+
 APP_ID = 'dash_app_2'
 URL_BASE = '/dash/dash_app_2/'
 MIN_HEIGHT = 600
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     FA = "https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     external_stylesheets = [
@@ -94,9 +93,6 @@ def add_dash(server, login_reg=True):
                 get_figure(df, "Col 5", "Col 6", selectedpoints, selection3)]
 
 
-    if login_reg:
-        _protect_dashviews(app)
-
     return server
 
 
@@ -109,7 +105,7 @@ if __name__ == '__main__':
     bootstrap.init_app(app)
 
     # inject Dash
-    app = add_dash(app, login_reg=False)
+    app = add_dash(app)
 
     @app.route(URL_BASE+'debug')
     def dash_app():

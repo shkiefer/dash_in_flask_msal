@@ -3,13 +3,12 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
-from app.dashapps import _protect_dashviews
 
 APP_ID = 'dash_app_1'
 URL_BASE = '/dash/dash_app_1/'
 MIN_HEIGHT = 200
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     external_stylesheets = [
         dbc.themes.BOOTSTRAP,
@@ -38,8 +37,6 @@ def add_dash(server, login_reg=True):
     def update_output_div(input_value):
         return 'Output: {}'.format(input_value)
 
-    if login_reg:
-        _protect_dashviews(app)
 
     return server
 
@@ -53,7 +50,7 @@ if __name__ == '__main__':
     bootstrap.init_app(app)
 
     # inject Dash
-    app = add_dash(app, login_reg=False)
+    app = add_dash(app)
 
     @app.route(URL_BASE+'debug')
     def dash_app():

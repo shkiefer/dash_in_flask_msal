@@ -3,7 +3,6 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
-from app.dashapps import _protect_dashviews
 from app import db
 from app.dashapps.models import User_Image
 
@@ -13,7 +12,7 @@ APP_ID = 'user_image_view'
 URL_BASE = '/dash/user_image_view/'
 MIN_HEIGHT = 1000
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     external_stylesheets = [
         dbc.themes.BOOTSTRAP,
@@ -54,13 +53,10 @@ def add_dash(server, login_reg=True):
                          )
                      ]
                      ),
-            # todo add modal display
         ])
 
     app.layout = serve_layout
 
-    if login_reg:
-        _protect_dashviews(app)
 
     return server
 
@@ -68,9 +64,7 @@ def add_dash(server, login_reg=True):
 if __name__ == '__main__':
     from flask import Flask, render_template
     from flask_bootstrap import Bootstrap
-    from flask_sqlalchemy import SQLAlchemy
     from config import Config
-    from app import create_app
 
     bootstrap = Bootstrap()
     Config.TESTING = True
@@ -91,7 +85,7 @@ if __name__ == '__main__':
         db.session.remove()
 
     # inject Dash
-    app = add_dash(app, login_reg=False)
+    app = add_dash(app)
 
     @app.route(URL_BASE+'debug')
     def dash_app():

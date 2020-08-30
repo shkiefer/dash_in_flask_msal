@@ -7,7 +7,6 @@ import dash_table
 from dash.exceptions import PreventUpdate
 from dash_table.Format import Format, Scheme, Sign, Symbol
 
-from app.dashapps import _protect_dashviews
 from app import db
 from app.dashapps.models import User_Image
 
@@ -24,7 +23,7 @@ APP_ID = 'user_image_upload'
 URL_BASE = '/dash/user_image_upload/'
 MIN_HEIGHT = 2000
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     external_stylesheets = [
         dbc.themes.BOOTSTRAP,
@@ -274,11 +273,8 @@ def add_dash(server, login_reg=True):
             data.append({'name': ui.name, 'creator': ui.creator, 'id': ui.id, 'img_web_url': ui.img_web_url})
         return data, []
 
-
-    if login_reg:
-        _protect_dashviews(app)
-
     return server
+
 
 def make_img_file(contents):
     im_data_tag = contents.split(',')[1]
@@ -305,9 +301,7 @@ def make_thumb(contents):
 if __name__ == '__main__':
     from flask import Flask, render_template
     from flask_bootstrap import Bootstrap
-    from flask_sqlalchemy import SQLAlchemy
     from config import Config
-    from app import create_app
 
     bootstrap = Bootstrap()
     Config.TESTING = True
@@ -328,7 +322,7 @@ if __name__ == '__main__':
         db.session.remove()
 
     # inject Dash
-    app = add_dash(app, login_reg=False)
+    app = add_dash(app)
 
     @app.route(URL_BASE+'debug')
     def dash_app():

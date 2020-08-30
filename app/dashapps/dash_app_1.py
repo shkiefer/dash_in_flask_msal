@@ -3,7 +3,6 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
-from app.dashapps import _protect_dashviews
 
 APP_ID = 'dash_app_1'
 URL_BASE = '/dash/dash_app_1/'
@@ -38,8 +37,6 @@ def add_dash(server, login_reg=True):
     def update_output_div(input_value):
         return 'Output: {}'.format(input_value)
 
-    if login_reg:
-        _protect_dashviews(app)
 
     return server
 

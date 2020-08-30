@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 import plotly.express as px
-from app.dashapps import _protect_dashviews
+
 APP_ID = 'dash_app_2'
 URL_BASE = '/dash/dash_app_2/'
 MIN_HEIGHT = 600
@@ -92,10 +92,6 @@ def add_dash(server, login_reg=True):
         return [get_figure(df, "Col 1", "Col 2", selectedpoints, selection1),
                 get_figure(df, "Col 3", "Col 4", selectedpoints, selection2),
                 get_figure(df, "Col 5", "Col 6", selectedpoints, selection3)]
-
-
-    if login_reg:
-        _protect_dashviews(app)
 
     return server
 

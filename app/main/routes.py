@@ -1,5 +1,4 @@
 from flask import Flask, render_template, session, request, redirect, url_for
-import msal
 
 from app.main import bp
 

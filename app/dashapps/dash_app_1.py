@@ -8,7 +8,7 @@ APP_ID = 'dash_app_1'
 URL_BASE = '/dash/dash_app_1/'
 MIN_HEIGHT = 200
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     external_stylesheets = [
         dbc.themes.BOOTSTRAP,

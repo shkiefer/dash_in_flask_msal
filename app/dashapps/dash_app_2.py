@@ -12,7 +12,7 @@ APP_ID = 'dash_app_2'
 URL_BASE = '/dash/dash_app_2/'
 MIN_HEIGHT = 600
 
-def add_dash(server, login_reg=True):
+def add_dash(server):
 
     FA = "https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     external_stylesheets = [

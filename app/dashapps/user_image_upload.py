@@ -85,7 +85,6 @@ def add_dash(server):
                 html.H4('', id=f'{APP_ID}_card_name_H4'),
                 html.P('', id=f'{APP_ID}_card_creator_P'),
                 dbc.ButtonGroup([
-                    dbc.Button('Enlarge', id=f'{APP_ID}_card_enlarge_button', color='secondary'),
                     dbc.Button('Submit to Database', id=f'{APP_ID}_card_submit_button', color='primary', disabled=True),
                 ]),
                 dbc.CardFooter(
@@ -204,7 +203,6 @@ def add_dash(server):
         else:
             im_filename = ''
             try:
-                # if selected remove existing before submitting
                 if len(derived_virtual_selected_rows) > 0:
                     ui_id = data[derived_virtual_selected_rows[0]]['id']
                     uimg = User_Image.query.filter_by(id=ui_id).first()

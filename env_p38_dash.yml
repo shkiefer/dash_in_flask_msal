@@ -12,20 +12,11 @@ dependencies:
 - scipy
 # data / pandas
 - pandas
-- openpyxl
-- xlrd
 # plotly
 - plotly
-# document
-- python-docx
-- pypdf2
-- commonmark
-- poppler
-- pdf2image
 # dash and flask
 - flask
 - dash
-- gunicorn
 - flask-sqlalchemy
 - flask-login
 - flask-migrate

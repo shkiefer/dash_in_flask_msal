@@ -40,7 +40,6 @@ def add_dash(server):
                                  dbc.CardBody([
                                      html.H4(uimg.name),
                                      html.P(uimg.creator),
-                                     dbc.Button('Enlarge', id=f'{APP_ID}_card_button_uimg{uimg.id}', color='primary')
                                  ]),
                                  dbc.CardFooter(
                                      dbc.CardLink('Web Link', href=f'{uimg.img_web_url}',

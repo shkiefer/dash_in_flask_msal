@@ -1,7 +1,5 @@
 from flask import Flask
-
 from config import Config
-
 # extensions
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -44,7 +42,6 @@ def create_app(config_class=Config):
         app.register_blueprint(bp_dashapps)
 
         # process dash apps
-        from app.dashapps import _protect_dashviews
         # dash app 1
         from app.dashapps.dash_app_1 import add_dash as ad1
         app = ad1(app, login_reg=False)

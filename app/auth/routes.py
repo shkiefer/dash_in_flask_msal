@@ -1,6 +1,5 @@
 import uuid
-import requests
-from flask import Flask, redirect, url_for, render_template, flash, current_app, request, session
+from flask import redirect, url_for, render_template, flash, current_app, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 from app import db
 from app.auth import bp

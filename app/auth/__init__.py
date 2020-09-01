@@ -1,7 +1,6 @@
 from flask import Blueprint
 import uuid
-import requests
-from flask import Flask, render_template, session, request, redirect, url_for, current_app
+from flask import url_for, current_app
 import msal
 
 bp = Blueprint('auth', __name__, template_folder='templates')
@@ -18,8 +17,6 @@ def _build_auth_url(authority=None, scopes=None, state=None):
         scopes or [],
         state=state or str(uuid.uuid4()),
         redirect_uri=url_for("auth.authorized", _external=True))
-
-
 
 
 from app.auth import routes

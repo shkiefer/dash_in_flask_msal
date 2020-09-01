@@ -1,5 +1,5 @@
-from flask import Flask, render_template, session, request, redirect, url_for, current_app
-from flask_login import current_user, login_required
+from flask import render_template
+from flask_login import login_required
 
 from app.dashapps import bp
 from app.dashapps import dash_app_1 as dash_app_1_obj

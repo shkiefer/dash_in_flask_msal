@@ -12,5 +12,3 @@ class User_Image(db.Model):
 
     def __repr__(self):
         return '<Image {}>'.format(self.name)
-
-# todo add way to add items to db

@@ -1,6 +1,4 @@
 import dash
-from dash.dependencies import Input, Output
-import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from app.dashapps import _protect_dashviews
@@ -41,7 +39,6 @@ def add_dash(server, login_reg=True):
                                  dbc.CardBody([
                                      html.H4(uimg.name),
                                      html.P(uimg.creator),
-                                     dbc.Button('Enlarge', id=f'{APP_ID}_card_button_uimg{uimg.id}', color='primary')
                                  ]),
                                  dbc.CardFooter(
                                      dbc.CardLink('Web Link', href=f'{uimg.img_web_url}',
@@ -54,7 +51,6 @@ def add_dash(server, login_reg=True):
                          )
                      ]
                      ),
-            # todo add modal display
         ])
 
     app.layout = serve_layout

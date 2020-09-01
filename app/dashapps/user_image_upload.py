@@ -86,7 +86,6 @@ def add_dash(server, login_reg=True):
                 html.H4('', id=f'{APP_ID}_card_name_H4'),
                 html.P('', id=f'{APP_ID}_card_creator_P'),
                 dbc.ButtonGroup([
-                    dbc.Button('Enlarge', id=f'{APP_ID}_card_enlarge_button', color='secondary'),
                     dbc.Button('Submit to Database', id=f'{APP_ID}_card_submit_button', color='primary', disabled=True),
                 ]),
                 dbc.CardFooter(
